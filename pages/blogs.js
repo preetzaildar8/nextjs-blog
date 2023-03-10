@@ -4,15 +4,16 @@ import utilStyles from '../styles/utils.module.css'
 import { getSortedPostsData } from '../lib/posts'
 import Link from 'next/link';
 import Date from '../components/date';
+import BlogsLayout from '../components/blogs-layout';
 
 export default function Blogs({ allPostsData }) {
   return (
-    <Layout home>
+    <BlogsLayout>
       <Head>
         <title>{siteTitle}</title>
       </Head>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
+        <h2 className={utilStyles.headingLg}>Blogs</h2>
         <ul className={utilStyles.list}>
           {allPostsData.map(({ id, date, title }) => (
             <li className={utilStyles.listItem} key={id}>
@@ -25,7 +26,7 @@ export default function Blogs({ allPostsData }) {
           ))}
         </ul>
       </section>
-    </Layout>
+    </BlogsLayout>
   )
 }
 
