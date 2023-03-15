@@ -63,7 +63,6 @@ export const getServerSideProps = withIronSession(
     let check = true
 
     if (!user) {
-      console.log("please login to access the page")
       check = false
       return {
         props: { check }

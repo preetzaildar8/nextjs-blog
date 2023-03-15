@@ -25,3 +25,8 @@ img {
   max-width: 100%;
   display: block;
 }
+
+.dark {
+  background-color: #000;
+  color: white;
+}

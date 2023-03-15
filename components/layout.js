@@ -3,12 +3,17 @@ import Image from 'next/image';
 import styles from './layout.module.css';
 import utilStyles from '../styles/utils.module.css';
 import Link from 'next/link';
+import { useContext } from 'react'
+import { ThemeContext } from '../helpers/ThemeContext'
 
 const name = 'Khushanpreet Singh';
 export const siteTitle = 'Next.js Sample Website';
 
 export default function Layout({ children, home }) {
+  const { theme, toggleTheme } = useContext(ThemeContext)
+
   return (
+    <div className={theme}>
     <div className={styles.container}>
       <Head>
         <link rel="icon" href="/favicon.ico" />
@@ -68,6 +73,7 @@ export default function Layout({ children, home }) {
           <Link href="/blogs">← View all blogs</Link>
         </div>
       )}
+    </div>
     </div>
   );
 }

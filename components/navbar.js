@@ -1,14 +1,19 @@
+import { useContext } from 'react'
+import { ThemeContext } from '../helpers/ThemeContext'
 import Link from "next/link"
 import styles from './navbar.module.css'
 
 export default function Navbar() {
+    const { theme, toggleTheme } = useContext(ThemeContext)
     return(
-        <nav className={styles.nav}>
+        <nav className={theme}>
             <ul className={styles.navbar}>
-                <li><Link href="/">Home</Link></li>
-                <li><Link href="/blogs">Blogs</Link></li>
-                <li><Link href="/about">About</Link></li>
-                <li><Link href="contact">Contact</Link></li>
+                <li><Link className={theme} href="/">Home</Link></li>
+                <li><Link className={theme} href="/blogs">Blogs</Link></li>
+                <li><Link className={theme} href="/about">About</Link></li>
+                <li><Link className={theme} href="contact">Contact</Link></li>
+                <li><Link className={theme} href="/signin">Sign In</Link></li>
+                <li><button className={styles.navButton} onClick={toggleTheme}>Toggle Theme</button></li>
             </ul>
         </nav>
     )
